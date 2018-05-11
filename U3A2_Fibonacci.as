@@ -1,19 +1,24 @@
-/*
-
+﻿/*
+Nom du fichier : U3A2_Fibonacci.as
+Programmeur : Dominik Dumas
+Date : 11 mai 2018
+Description : Calculer les nombres fibonacci
 */
 
 package {
 
     // imports
+	import flash.display.*;
+	import flash.events.*;
 
-    public class U3A2_Fibonacci
+    public class U3A2_Fibonacci extends MovieClip
     {
 
         public function U3A2_Fibonacci()
         {
             
             // event listeners
-            btnEntrer.addEventListener(event.MouseClick, Calculer)
+            btnEntrer.addEventListener(MouseEvent.CLICK, Calculer)
 
         } // fin de fonction U3A2_Fibonacci
 
@@ -21,33 +26,32 @@ package {
         public function ObtenirInt(nombre):int
         {
             
-            var nombre:int = int(nombre);
+            var nombre:int = int(nombre); // stocker le nombre
+			return nombre;
 
-            if(typeOf(nombre) != int)
-            {
-                trace('Error');
-            }
-            else
-            {
-
-                return nombre;
-
-            } // fin de if
+            //if(nombre is int)
+//            {
+//				return nombre;
+//            }
+//            else
+//            {
+//                return 0; // retourner le integer
+//            } // fin de if
 
         } // fin de fonction ObtenirInt
 
         // fonction récursive pour Fibonacci
         public function Fibonacci(n):int
         {
-            if(n == 0)
+            if(n == 0) // si n == 0, return 0
             {
                 return 0;
             }
-            else if(n == 1)
+            else if(n == 1) // si n == 1, return 1
             {
                 return 1;
             }
-            else
+            else // else return le calcul
             {
                 return Fibonacci(n-1) + Fibonacci(n-2);
             }   // fin de if
@@ -57,7 +61,7 @@ package {
         public function Calculer(EVENT:MouseEvent):void
         {
             
-            var nombre:int = ObtenirInt(txtInt.text);       // variable pour garder le chiffre demandé par l'utilisateur
+            var nombre:int = int(txtInt.text);       // variable pour garder le chiffre demandé par l'utilisateur
 
             var fibobacci:int = new int(Fibonacci(nombre)); // variable pour stocker (et calculer) le nombre de fibonacci
 
